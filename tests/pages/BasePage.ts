@@ -6,9 +6,17 @@ export class BasePage {
     this.page = page;
   }
   async closeCookiesAlert() {
-    await this.page.getByRole('button', { name: 'Ок', exact: true }).click();
+    try {
+      await this.page.getByRole('button', { name: 'Ок', exact: true }).click();
+    } catch (e) {
+      // Кнопки нет — игнорируем
+    }
   }
   async closeBanner() {
-    await this.page.getByRole('button', { name: 'Закрыть' }).click();
+    try {
+      await this.page.getByRole('button', { name: 'Закрыть' }).click();
+    } catch (e) {
+      // Нет баннера — ничего страшного
+    }
   }
 }
