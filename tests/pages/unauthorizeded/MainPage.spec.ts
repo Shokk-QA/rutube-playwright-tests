@@ -27,3 +27,12 @@ test('Проверка доступности элементов модальн�
   await mainPage.swithToRegistrationMode();
   await mainPage.regictrationModelHasCorrectAriaSnapshot();
 });
+test('Проверка доступности элементов раскрытого меню', async ({ mainPage }) => {
+  await mainPage.openFullMenu();
+  await mainPage.fullMenuAriaHasCorrectAriaSnapshot;
+});
+test('Переключение темы', async ({ mainPage }) => {
+  await mainPage.checkThemeAttributeValue('dark2021');
+  await mainPage.changeThemeToWhile();
+  await mainPage.checkThemeAttributeValue('white2022');
+});
