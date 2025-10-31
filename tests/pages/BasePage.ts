@@ -7,16 +7,14 @@ export class BasePage {
   }
   async closeCookiesAlert() {
     try {
-      await this.page.waitForSelector('selector', { timeout: 2000 });
-      await this.page.locator('selector').click();
+      await this.page.getByRole('button', { name: 'Ок' }).click({ timeout: 2000 });
     } catch (e) {
       // Окно не появилось — просто игнорируем
     }
   }
   async closeBanner() {
     try {
-      await this.page.waitForSelector('selector', { timeout: 2000 });
-      await this.page.locator('selector').click();
+      await this.page.getByRole('button', { name: 'Закрыть' }).click({ timeout: 2000 });
     } catch (e) {
       // Окно не появилось — просто игнорируем
     }

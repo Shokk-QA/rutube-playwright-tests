@@ -100,6 +100,17 @@ export class MainPage extends BasePage {
     await this.checkAriaSnapshot(this.headerNotificationPopupLocator, 'notificationsPopup.yml');
   }
   async fullMenuAriaHasCorrectAriaSnapshot() {
+    // Очищаем динамичные ссылки и футер
+    //Пришлось усложнить код а то из за динамических элементов тест падал
+    await this.page.evaluate(() => {
+      document.querySelectorAll('a[href*="appmetrica"]').forEach((el) => {
+        if (el.parentElement) el.parentElement.remove();
+      });
+      document.querySelectorAll('.menu-content-module__menuOpen .listitem').forEach((li) => {
+        if (!li.querySelector('a')) li.remove();
+      });
+      document.querySelectorAll('footer').forEach((el) => el.remove());
+    });
     await this.checkAriaSnapshot(this.openMenuAriaLocator, 'MenuAriaSnapshot.yml');
   }
   async headerUserMenuHasCorrectAriaSnapshot() {

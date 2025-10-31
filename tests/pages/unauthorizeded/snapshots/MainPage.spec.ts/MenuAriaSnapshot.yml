@@ -33,6 +33,8 @@
       - link "RUTUBE x PREMIER":
         - /url: /feeds/premier/
   - separator
+  - paragraph: Войдите, чтобы подписываться на каналы, комментировать видео и оставлять реакции
+  - button "Вход и регистрация"
   - button "Активировать промокод"
   - separator
   - region "Моё":
@@ -61,15 +63,6 @@
   - region "По темам":
     - button "По темам":
       - img
-  - separator
-  - text: Мои подписки
-  - list "Мои подписки":
-    - listitem:
-      - link "Камеди Клаб":
-        - /url: /metainfo/tv/10/
-    - listitem:
-      - link "ПРОЖАРКА PREMIER":
-        - /url: /metainfo/tv/10222/
   - separator
   - region "Cкачать приложения":
     - text: RUTUBE всегда с вами
