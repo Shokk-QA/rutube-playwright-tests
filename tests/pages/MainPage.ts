@@ -16,6 +16,8 @@ export class MainPage extends BasePage {
   private readonly menuButtonLocator: Locator;
   private readonly openMenuAriaLocator: Locator;
   private readonly changeThemeButtonLocator: Locator;
+  private readonly userLogoLocator: Locator;
+  private readonly headerUserMenuLocator: Locator;
 
   constructor(page: Page) {
     super(page);
@@ -52,28 +54,26 @@ export class MainPage extends BasePage {
     this.changeThemeButtonLocator = this.page.getByRole('button', {
       name: 'Переключить на светлую тему',
     });
+    this.userLogoLocator = this.page.getByRole('img', { name: 'Иконка канала Данил' });
+    this.headerUserMenuLocator = this.page.getByText(
+      'Данилda****@mail.ruПрофильМой каналСтудия RUTUBEВыйти',
+    );
+
+    //action
   }
   async open() {
     await this.page.goto('https://rutube.ru/');
   }
+  async openHeaderUserLogo() {
+    await this.userLogoLocator.click();
+  }
   async openFullMenu() {
     await this.menuButtonLocator.click();
-    this.changeThemeButtonLocator.click();
   }
   async changeThemeToWhile() {
     await this.changeThemeButtonLocator.click();
   }
-  async hederHasCorrectAriaSnapshot() {
-    await expect(this.headerLocator).toMatchAriaSnapshot({ name: 'hederAriaSnaphot.yml' });
-  }
-  async categoriesTabHasCorrectAriaSnapshot() {
-    await expect(this.categoriesTabLocator).toMatchAriaSnapshot({
-      name: 'categoriesTabSnaphot.yml',
-    });
-  }
-  async menuHasCorrectAriaSnapshot() {
-    await expect(this.menuLocator).toMatchAriaSnapshot({ name: 'menuSnaphot.yml' });
-  }
+
   async openAddPopupList() {
     await this.headerAddButtonLocator.click();
   }
@@ -91,15 +91,31 @@ export class MainPage extends BasePage {
     await this.fillPhoneNumberForRegistrationFormLocator.fill('+79284995456');
     await this.loginAndRegistrarionButtonLocator.click();
   }
+
+  //assertions
   async addPopupListHasCorrectAriaSnapshot() {
-    await expect(this.headerAddButtonListPopupLocator).toMatchAriaSnapshot({
-      name: 'addButtonToPopupList.yml',
-    });
+    await this.checkAriaSnapshot(this.headerAddButtonListPopupLocator, 'addButtonToPopupList.yml');
   }
   async notificationPopupHasCorrectAriaSnapshot() {
-    await expect(this.headerNotificationPopupLocator).toMatchAriaSnapshot({
-      name: 'notificationsPopup.yml',
-    });
+    await this.checkAriaSnapshot(this.headerNotificationPopupLocator, 'notificationsPopup.yml');
+  }
+  async fullMenuAriaHasCorrectAriaSnapshot() {
+    await this.checkAriaSnapshot(this.openMenuAriaLocator, 'MenuAriaSnapshot.yml');
+  }
+  async headerUserMenuHasCorrectAriaSnapshot() {
+    await this.checkAriaSnapshot(this.headerUserMenuLocator, 'headerUserMenuSnapshot.yml');
+  }
+  async categoriesTabHasCorrectAriaSnapshot() {
+    await this.checkAriaSnapshot(this.categoriesTabLocator, 'categoriesTabSnaphot.yml');
+  }
+  async menuHasCorrectAriaSnapshot() {
+    await this.checkAriaSnapshot(this.menuLocator, 'menuSnaphot.yml');
+  }
+  async hederHasCorrectAriaSnapshot() {
+    await this.checkAriaSnapshot(this.headerLocator, 'hederAriaSnaphot.yml');
+  }
+  async checkThemeAttributeValue(attibudeValue: 'dark2021' | 'white2022') {
+    await expect(this.page.locator('html')).toHaveAttribute('data-pen-theme', attibudeValue);
   }
   async authorizationModelHasCorrectAriaSnapshot() {
     const formLocator = this.page
@@ -119,13 +135,5 @@ export class MainPage extends BasePage {
     await expect(formLocator).toMatchAriaSnapshot({
       name: 'regictrationModel.yml',
     });
-  }
-  async fullMenuAriaHasCorrectAriaSnapshot() {
-    await expect(this.openMenuAriaLocator).toMatchAriaSnapshot({
-      name: 'MenuAriaSnapshot.yml',
-    });
-  }
-  async checkThemeAttributeValue(attibudeValue: 'dark2021' | 'white2022') {
-    await expect(this.page.locator('html')).toHaveAttribute('data-pen-theme', attibudeValue);
   }
 }

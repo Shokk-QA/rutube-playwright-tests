@@ -16,5 +16,9 @@
     - paragraph:
       - img
       - text: Безопасный режим
+  - button "Оформить подписку":
+    - paragraph:
+      - img
+      - text: Оформить подписку
   - button "Вход и регистрация":
     - paragraph: Вход и регистрация

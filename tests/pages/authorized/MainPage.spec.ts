@@ -14,5 +14,11 @@ test('Проверка доступности элементов раскрыт�
   mainPage,
 }) => {
   await mainPage.openFullMenu();
-  await mainPage.fullMenuAriaHasCorrectAriaSnapshot;
+  await mainPage.fullMenuAriaHasCorrectAriaSnapshot();
+});
+test('Проверка доступности элементов меню пользователя в хедере авторизованного пользователя  ', async ({
+  mainPage,
+}) => {
+  await mainPage.openHeaderUserLogo();
+  await mainPage.headerUserMenuHasCorrectAriaSnapshot();
 });

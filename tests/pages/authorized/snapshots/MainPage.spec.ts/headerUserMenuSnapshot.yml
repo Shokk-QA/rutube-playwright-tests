@@ -1,0 +1,20 @@
+- img "Иконка канала Данил"
+- paragraph:
+  - link "Данил":
+    - /url: /channel/8308948/
+  - link:
+    - /url: /profile/info/edit/
+    - img
+- paragraph: da****@mail.ru
+- list:
+  - listitem:
+    - link "Профиль":
+      - /url: /profile/
+  - listitem:
+    - link "Мой канал":
+      - /url: /channel/8308948/
+  - listitem:
+    - link "Студия RUTUBE":
+      - /url: https://studio.rutube.ru/
+- button "Выйти":
+  - img

@@ -1,5 +1,6 @@
 import { test as base } from '@playwright/test';
 import { MainPage } from '../pages/MainPage';
+export { expect } from '@playwright/test';
 
 // Declare the types of your fixtures.
 type MyFixtures = {
@@ -19,4 +20,3 @@ export const test = base.extend<MyFixtures>({
     await use(mainPage);
   },
 });
-export { expect } from '@playwright/test';
