@@ -2,7 +2,7 @@ import { test, expect } from '../../fixtures/fixtures';
 import { MainPage } from '../MainPage';
 
 test('Проверка доступности элементов хедера авторизованного пользователя', async ({ mainPage }) => {
-  await mainPage.hederHasCorrectAriaSnapshot();
+  await mainPage.headerHasCorrectAriaSnapshot();
 });
 test('Проверка доступности элементов Popup уведомлений авторизованного пользователя', async ({
   mainPage,
@@ -16,7 +16,7 @@ test('Проверка доступности элементов раскрыт�
   await mainPage.openFullMenu();
   await mainPage.fullMenuAriaHasCorrectAriaSnapshot();
 });
-test('Проверка доступности элементов меню пользователя в хедере авторизованного пользователя  ', async ({
+test('Проверка доступности элементов меню пользователя в хедере авторизованного пользователя', async ({
   mainPage,
 }) => {
   await mainPage.openHeaderUserLogo();

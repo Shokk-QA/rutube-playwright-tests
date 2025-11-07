@@ -40,15 +40,11 @@ export class MainPage extends BasePage {
       .locator('iframe[title="Multipass"]')
       .contentFrame()
       .getByRole('button', { name: 'Продолжить' });
-    // .locator('div[role="form"]')
-    // .getByRole('button', { name: 'Продолжить' });
 
     this.fillPhoneNumberForRegistrationFormLocator = this.page
       .locator('iframe[title="Multipass"]')
       .contentFrame()
       .getByRole('textbox', { name: 'Введите телефон' });
-    // .locator('div[role="form"]')
-    // .getByRole('textbox', { name: 'Введите телефон' });
     this.menuButtonLocator = this.page.getByRole('button', { name: 'Открыть меню навигации' });
     this.openMenuAriaLocator = this.page.locator('.menu-content-module__menuOpen');
     this.changeThemeButtonLocator = this.page.getByRole('button', {
@@ -70,7 +66,7 @@ export class MainPage extends BasePage {
   async openFullMenu() {
     await this.menuButtonLocator.click();
   }
-  async changeThemeToWhile() {
+  async changeThemeToWhite() {
     await this.changeThemeButtonLocator.click();
   }
 
@@ -87,7 +83,7 @@ export class MainPage extends BasePage {
   async fillPhoneNumber() {
     await this.fillPhoneNumberForRegistrationFormLocator.fill('+79284995456');
   }
-  async swithToRegistrationMode() {
+  async switchToRegistrationMode() {
     await this.fillPhoneNumberForRegistrationFormLocator.fill('+79284995456');
     await this.loginAndRegistrarionButtonLocator.click();
   }
@@ -122,11 +118,11 @@ export class MainPage extends BasePage {
   async menuHasCorrectAriaSnapshot() {
     await this.checkAriaSnapshot(this.menuLocator, 'menuSnaphot.yml');
   }
-  async hederHasCorrectAriaSnapshot() {
+  async headerHasCorrectAriaSnapshot() {
     await this.checkAriaSnapshot(this.headerLocator, 'hederAriaSnaphot.yml');
   }
-  async checkThemeAttributeValue(attibudeValue: 'dark2021' | 'white2022') {
-    await expect(this.page.locator('html')).toHaveAttribute('data-pen-theme', attibudeValue);
+  async checkThemeAttributeValue(attributeValue: 'dark2021' | 'white2022') {
+    await expect(this.page.locator('html')).toHaveAttribute('data-pen-theme', attributeValue);
   }
   async authorizationModelHasCorrectAriaSnapshot() {
     const formLocator = this.page
@@ -138,7 +134,7 @@ export class MainPage extends BasePage {
     });
   }
 
-  async regictrationModelHasCorrectAriaSnapshot() {
+  async registrationModelHasCorrectAriaSnapshot() {
     const formLocator = this.page
       .frameLocator('iframe[title="Multipass"]')
       .locator('div[role="form"]');

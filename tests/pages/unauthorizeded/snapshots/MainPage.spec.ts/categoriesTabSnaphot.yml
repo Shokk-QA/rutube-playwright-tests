@@ -1,34 +1,34 @@
 - list:
   - listitem:
     - link "Главная":
-      - /url: /feeds/recommend_main/
+      - /url: /
   - listitem:
     - link "Фильмы":
-      - /url: /feeds/recommend_main/movies/
+      - /url: /feeds/new_main_page/movies/
   - listitem:
     - link "Сериалы":
-      - /url: /feeds/recommend_main/series/
+      - /url: /feeds/new_main_page/series/
   - listitem:
     - link "Телешоу":
-      - /url: /feeds/recommend_main/tv/
+      - /url: /feeds/new_main_page/tv/
   - listitem:
     - link "Спорт":
-      - /url: /feeds/recommend_main/sport/
+      - /url: /feeds/new_main_page/sport/
   - listitem:
     - link "Блогеры":
-      - /url: /feeds/recommend_main/ugc/
+      - /url: /feeds/new_main_page/ugc/
   - listitem:
     - link "Новости":
-      - /url: /feeds/recommend_main/news/
+      - /url: /feeds/new_main_page/news/
   - listitem:
     - link "Музыка":
-      - /url: /feeds/recommend_main/music/
+      - /url: /feeds/new_main_page/music/
   - listitem:
     - link "Подкасты":
-      - /url: /feeds/recommend_main/podcasts/
+      - /url: /feeds/new_main_page/podcasts/
   - listitem:
     - link "Детям":
-      - /url: /feeds/recommend_main/kids/
+      - /url: /feeds/new_main_page/kids/
   - listitem:
     - link "ТВ онлайн":
-      - /url: /feeds/recommend_main/lives/
+      - /url: /feeds/new_main_page/lives/

@@ -3,7 +3,7 @@ import { test, expect } from '../../fixtures/fixtures';
 test('Проверка доступности элементов хедера неавторизованного пользователя', async ({
   mainPage,
 }) => {
-  await mainPage.hederHasCorrectAriaSnapshot();
+  await mainPage.headerHasCorrectAriaSnapshot();
 });
 test('Проверка доступности элементов табов категорий неавторизованного пользователя', async ({
   mainPage,
@@ -37,8 +37,8 @@ test('Проверка доступности элементов модальн�
   mainPage,
 }) => {
   await mainPage.openAuthorizationModel();
-  await mainPage.swithToRegistrationMode();
-  await mainPage.regictrationModelHasCorrectAriaSnapshot();
+  await mainPage.switchToRegistrationMode();
+  await mainPage.registrationModelHasCorrectAriaSnapshot();
 });
 test('Проверка доступности элементов раскрытого меню неавторизованного пользователя', async ({
   mainPage,
@@ -48,6 +48,6 @@ test('Проверка доступности элементов раскрыт�
 });
 test('Переключение темы неавторизованного пользователя', async ({ mainPage }) => {
   await mainPage.checkThemeAttributeValue('dark2021');
-  await mainPage.changeThemeToWhile();
+  await mainPage.changeThemeToWhite();
   await mainPage.checkThemeAttributeValue('white2022');
 });
